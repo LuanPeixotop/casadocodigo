@@ -13,13 +13,17 @@
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais -
 	Casa do Código</title>
 </head>
 <body>
 	<div class="container">
 		<h1 align="center">Lista de produtos</h1>
+		<div align="center">
+			<strong>${sucesso}</strong>
+		</div>
+		<br />
 		<table class="striped">
 			<tr>
 				<td>Título</td>
@@ -27,13 +31,13 @@
 				<td>Páginas</td>
 			</tr>
 
-			<c:forEach items="${produtos}" var="produto">
-				<tr>
-					<td>${produto.titulo}</td>
-					<td>${produto.descricao}</td>
-					<td>${produto.paginas}</td>
-				</tr>
-			</c:forEach>
+				<c:forEach items="${produtos}" var="produto">
+					<tr>
+						<td>${produto.titulo}</td>
+						<td>${produto.descricao}</td>
+						<td>${produto.paginas}</td>
+					</tr>
+				</c:forEach>
 		</table>
 		<script type="text/javascript"
 			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
