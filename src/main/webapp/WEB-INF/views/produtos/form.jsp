@@ -23,7 +23,7 @@
 	<div class="container">
 		<h1 style="font-size: 300%" align="center">Cadastro de livros</h1>
 		<form:form action="${s:mvcUrl('PC#gravar').build()}" method="post"
-			commandName="produto">
+			commandName="produto" enctype="multipart/form-data">
 			<div>
 				<label>Título: </label>
 				<form:errors path="titulo" />
@@ -52,7 +52,14 @@
 						value="${tipoPreco}" />
 				</div>
 			</c:forEach>
-			<button type="submit">Cadastrar</button>
+			<div>
+				<label for="sumario">Sumário: </label>
+				<input type="file" name="sumario">
+			</div>
+			<div align="center">
+				<br/>
+				<button type="submit">Cadastrar</button>
+			</div>
 		</form:form>
 	</div>
 	<script type="text/javascript"
