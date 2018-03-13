@@ -47,7 +47,7 @@
 			<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
 				<div>
 					<label>Preço ${tipoPreco}:</label>
-					<form:input type="number" path="precos[${status.index}].valor" />
+					<form:input type="number" step="0.01" path="precos[${status.index}].valor" />
 					<form:hidden path="precos[${status.index}].tipo"
 						value="${tipoPreco}" />
 				</div>
