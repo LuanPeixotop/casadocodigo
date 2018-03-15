@@ -3,12 +3,16 @@ package br.com.casadocodigo.loja.models;
 import java.math.BigDecimal;
 
 public class CarrinhoItem {
+	
 	private Produto produto;
 	private TipoPreco tipo;
 	
 	public CarrinhoItem(Produto produto, TipoPreco tipo) {
 		this.produto = produto;
 		this.tipo = tipo;
+	}
+
+	public CarrinhoItem() {
 	}
 	
 	public Produto getProduto() {

@@ -22,7 +22,7 @@
 	<div class="container">
 		<h1 align="center">Lista de produtos</h1>
 		<div align="center">
-			<strong>${sucesso}</strong>
+			<strong>${message}</strong>
 		</div>
 		<br />
 		<table class="striped">
