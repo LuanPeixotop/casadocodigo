@@ -40,13 +40,13 @@ public class ProdutosController {
 	@Autowired
 	private ProdutoDAO produtoDao;
 
-	@CacheEvict(value = "produtosHome", allEntries = true)
+	@CacheEvict(value="produtosHome", allEntries=true)
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView gravar(MultipartFile sumario, @Valid Produto produto, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
-
+		
 		String path = fileSaver.write("arquivos", sumario);
-		produto.setSumarioPath(path);
+	    produto.setSumarioPath(path);
 
 		if (bindingResult.hasErrors()) {
 			return form(produto);
@@ -64,13 +64,18 @@ public class ProdutosController {
 		modelAndView.addObject("produtos", produtos);
 		return modelAndView;
 	}
-
+	
 	@RequestMapping("/detalhe/{id}")
-	public ModelAndView detalhe(@PathVariable("id") Integer id) {
-		ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
-		Produto produto = produtoDao.find(id);
-		modelAndView.addObject("produto", produto);
-		return modelAndView;
+	public ModelAndView detalhe(@PathVariable("id") Integer id){
+	    ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
+	    Produto produto = produtoDao.find(id);
+	    modelAndView.addObject("produto", produto);
+	    return modelAndView;
+	}
+	
+	@RequestMapping("/{id}")
+	public Produto detalheJson(@PathVariable("id") Integer id) {
+		return produtoDao.find(id);
 	}
 
 	@InitBinder
