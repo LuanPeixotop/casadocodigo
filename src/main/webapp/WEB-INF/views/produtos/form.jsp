@@ -6,65 +6,80 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <html>
 <head>
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<!--Import materialize.css-->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<c:url value="/resources/css" var="cssPath" />
+<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" />
+<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" />
 <meta charset="utf-8" />
 <title>Cadastro de produtos</title>
 </head>
-
 <body>
+	<nav class="navbar navbar-inverse">
 	<div class="container">
-		<h1 style="font-size: 300%" align="center">Cadastro de livros</h1>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="${s:mvcUrl('HC#index').build()}">Casa
+				do Código</a>
+		</div>
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="${s:mvcUrl('PC#listar').build()}">Lista de
+						Produtos</a></li>
+				<li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de
+						Produtos</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	</nav>
+
+	<div class="container">
+		<h1>Cadastro de livros</h1>
 		<form:form action="${s:mvcUrl('PC#gravar').build()}" method="post"
 			commandName="produto" enctype="multipart/form-data">
-			<div>
+			<div class="form-group">
 				<label>Título: </label>
 				<form:errors path="titulo" />
-				<form:input path="titulo" />
+				<form:input path="titulo" cssClass="form-control" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Descrição: </label>
 				<form:errors path="descricao" />
-				<form:textarea rows="10" cols="20" path="descricao" />
+				<form:textarea rows="10" cols="20" path="descricao"
+					cssClass="form-control" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Páginas: </label>
 				<form:errors path="paginas" />
-				<form:input path="paginas" type="number" />
+				<form:input path="paginas" type="number" cssClass="form-control" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Data de Lançamento: </label>
 				<form:errors path="dataLancamento" />
-				<form:input path="dataLancamento" placeholder="dd/mm/yyyy" />
+				<form:input path="dataLancamento" placeholder="dd/mm/yyyy"
+					cssClass="form-control" />
 			</div>
 			<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
-				<div>
+				<div class="form-group">
 					<label>Preço ${tipoPreco}:</label>
-					<form:input type="number" step="0.01" path="precos[${status.index}].valor" />
+					<form:input type="number" step="0.01"
+						path="precos[${status.index}].valor" cssClass="form-control" />
 					<form:hidden path="precos[${status.index}].tipo"
 						value="${tipoPreco}" />
 				</div>
 			</c:forEach>
-			<div>
-				<label for="sumario">Sumário: </label>
-				<input type="file" name="sumario">
+			<div class="form-group">
+				<label for="sumario">Sumário: </label> <input type="file"
+					name="sumario" class="form-control">
 			</div>
-			<div align="center">
-				<br/>
-				<button type="submit">Cadastrar</button>
-			</div>
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
 		</form:form>
 	</div>
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
