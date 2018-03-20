@@ -4,6 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <html>
 <head>
 <c:url value="/resources/css" var="cssPath" />
@@ -33,6 +35,12 @@
 						Produtos</a></li>
 				<li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de
 						Produtos</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"> <security:authentication
+							property="principal" var="usuario" /> Usuário:
+						${usuario.username}
+				</a>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
