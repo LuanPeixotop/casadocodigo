@@ -41,6 +41,8 @@
 							property="principal" var="usuario" /> Usuário:
 						${usuario.username}
 				</a>
+				</li>
+				<li><a href="/casadocodigo/logout"><strong>Logout</strong></a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

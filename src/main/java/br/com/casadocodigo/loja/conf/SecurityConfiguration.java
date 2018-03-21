@@ -7,10 +7,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import br.com.casadocodigo.loja.daos.UsuarioDao;
 
-@SuppressWarnings("deprecation")
 @EnableWebMvcSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
@@ -25,7 +25,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/produtos/form").hasRole("ADMIN")
 		.antMatchers("/produtos").hasRole("ADMIN")
 		.antMatchers("/produtos/**").permitAll()
-		.anyRequest().authenticated().and().formLogin();
+		.anyRequest().authenticated().and().formLogin()
+		.loginPage("/login").permitAll().and()
+		.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 
 	@Override
@@ -38,8 +40,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resources/**");
     }
-	
-	
-	
 	
 }	
