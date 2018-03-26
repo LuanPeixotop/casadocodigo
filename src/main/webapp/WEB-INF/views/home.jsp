@@ -4,7 +4,9 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%>
-<%@include file="/WEB-INF/views/cabecalho.jsp" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
+
+<tags:pageTemplate titulo="Home">
 	<section id="index-section" class="container middle">
 
 		<h1 class="cdc-call">Últimos dias com os preços promocionais.
@@ -64,9 +66,5 @@
 
 
 	</section>
-	
-	<%@include file="/WEB-INF/views/rodape.jsp"%>
-
-</body>
-</html>
+</tags:pageTemplate>
 

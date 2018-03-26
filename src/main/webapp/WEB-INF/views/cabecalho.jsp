@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
@@ -19,7 +17,7 @@
 <link href="https://plus.googlecom/108540024862647200608"
 	rel="publisher" />
 <title>Livros de Java, SOA, Android, iPhone, Ruby on Rails e
-	muito mais - Casa do CÃ³digo</title>
+	muito mais - Casa do Código</title>
 <link href="${contextPath}resources/css/cssbase-min.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
