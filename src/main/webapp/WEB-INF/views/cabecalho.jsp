@@ -56,9 +56,8 @@
 					<ul class="clearfix">
 						<security:authorize access="isAuthenticated()">
 							<li><a href="${s:mvcUrl('PC#listar').build() }"
-								rel="nofollow">Listagem de Produtos</a></li>
-							<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow">Cadastro
-									de Produtos</a></li>
+								rel="nofollow"><fmt:message key="menu.lista"/></a></li>
+							<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow"><fmt:message key="menu.form"/></a></li>
 						</security:authorize>
 
 						<li>

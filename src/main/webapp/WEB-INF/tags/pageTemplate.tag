@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <title>${produto.titulo} - Casa do Código</title>
+    <title>${titulo } - Casa do Código</title>
 
     <link href="https://plus.googlecom/108540024862647200608" rel="publisher"/>
     <link href="https://cdn.rawgit.com/alura-cursos/spring-mvc-i-criando-aplicacoes-web-master/master/src/main/webapp/resources/css/cssbase-min.css" rel="stylesheet" type="text/css" media="all" />

@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Produto {
 	
 	@ElementCollection
-	private List<Preco> precos;
+	private List<Preco> precos = new ArrayList<>();
 	
 	@DateTimeFormat
 	private Calendar dataLancamento;
