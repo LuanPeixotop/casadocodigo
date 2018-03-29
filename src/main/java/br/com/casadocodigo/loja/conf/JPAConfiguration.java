@@ -17,41 +17,44 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JPAConfiguration {
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		factoryBean.setJpaVendorAdapter(vendorAdapter);
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 
-		factoryBean.setDataSource(dataSource);
+        factoryBean.setJpaVendorAdapter(vendorAdapter);
+        factoryBean.setDataSource(dataSource);
 
-		factoryBean.setJpaProperties(props());
+        Properties props = aditionalProperties();
 
-		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
+        factoryBean.setJpaProperties(props);
+        factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 
-		return factoryBean;
-	}
+        return factoryBean;
+    }
 
-	public Properties props() {
-		Properties props = new Properties();
-		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
-		return props;
-	}
+    @Bean
+    @Profile("dev")
+    public DataSource dataSource(){
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        return dataSource;
+    }
 
-	@Profile("dev")
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		return dataSource;
-	}
-	
-	 @Bean
-	    public JpaTransactionManager transactionManager(EntityManagerFactory emf){
-	        return new JpaTransactionManager(emf);
-	    }
+    private Properties aditionalProperties(){
+        Properties props = new Properties();
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        props.setProperty("hibernate.show_sql", "true");
+        props.setProperty("hibernate.hbm2ddl.auto", "update");
+        return props;
+    }
+
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory emf){
+        return new JpaTransactionManager(emf);
+    }
+
 }

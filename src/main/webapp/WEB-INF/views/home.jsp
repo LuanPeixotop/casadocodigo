@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
@@ -9,7 +7,7 @@
 <tags:pageTemplate titulo="Home">
 	<section id="index-section" class="container middle">
 
-		<h1 class="cdc-call">Ãšltimos dias com os preÃ§os promocionais.
+		<h1 class="cdc-call">Últimos dias com os preços promocionais.
 			Aproveite!</h1>
 		<ul class="clearfix book-collection">
 
@@ -27,14 +25,14 @@
 
 		</ul>
 
-		<h2 class="cdc-call">Diferenciais da Casa do CÃ³digo</h2>
+		<h2 class="cdc-call">Diferenciais da Casa do Código</h2>
 
 		<ul id="cdc-diferenciais" class="clearfix">
 			<li class="col-left">
 				<h3>E-books sem DRM. Leia onde quiser</h3>
 				<p>
-					<span class="sprite" id="sprite-drm"></span> Nossos e-books nÃ£o
-					possuem DRM, ou seja, vocÃª pode ler em qualquer computador, tablet
+					<span class="sprite" id="sprite-drm"></span> Nossos e-books não
+					possuem DRM, ou seja, você pode ler em qualquer computador, tablet
 					e smartphone.
 				</p>
 			</li>
@@ -43,15 +41,15 @@
 				<p>
 					<span class="sprite" id="sprite-renome"></span> Autores que
 					participam ativamente na comunidade com Open Source, listas de
-					discussÃ£o, grupos e mais.
+					discussão, grupos e mais.
 				</p>
 			</li>
 			<li class="col-left">
-				<h3>Receba atualizaÃ§Ãµes dos e-books</h3>
+				<h3>Receba atualizações dos e-books</h3>
 				<p>
-					<span class="sprite" id="sprite-atualizacoes"></span> Quando vocÃª
-					compra um e-book, automaticamente tem direito Ã s atualizaÃ§Ãµes e
-					correÃ§Ãµes dele.
+					<span class="sprite" id="sprite-atualizacoes"></span> Quando você
+					compra um e-book, automaticamente tem direito às atualizações e
+					correções dele.
 				</p>
 			</li>
 			<li class="col-right">
