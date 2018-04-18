@@ -25,7 +25,7 @@
 
 
 		<section class="buy-options clearfix">
-			<form:form servletRelativeAction="/carrinho/add" method="post" cssClass="container">
+			<form:form action="/casadocodigo/carrinho/add" method="post" cssClass="container">
 				<ul id="variants" class="clearfix">
 					<input type="hidden" name="produtoId" value="${produto.id}" />
 					<c:forEach items="${produto.precos }" var="preco">

@@ -57,7 +57,7 @@
 						</tr>
 				</c:forEach>
 				</tbody>
-				<form:form action="${s:mvcUrl('PC#finalizar').build()}" method="post">
+				<form:form action="/casadocodigo/pagamento/finalizar" method="post">
 					<tfoot>
 						<tr>
 							<td colspan="4"><input type="submit" class="checkout"
